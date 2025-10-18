@@ -37,7 +37,6 @@ body {
 }
 
 .direita {
-    overflow-y: scroll;
     max-height: calc(90dvh - 10dvh - 40px);
     padding: 40px;
 }

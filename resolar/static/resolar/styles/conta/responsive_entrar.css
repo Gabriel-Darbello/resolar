@@ -18,13 +18,17 @@
     /* Form Content */
 
     .container {
-        width: 70vw;
+        width: 90dvw;
         flex-direction: column;
         gap: 30px;
+
+        overflow-y: scroll;
     }
 
     .esquerda, .direita {
         width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 
     .input ~ .label {
@@ -86,13 +90,17 @@
     /* Form Content */
 
     .container {
-        width: 70vw;
+        width: 80dvw;
         flex-direction: column;
         gap: 30px;
+
+        overflow-y: scroll;
     }
 
     .esquerda, .direita {
         width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 
     .input ~ .label {
@@ -151,7 +159,7 @@
     /* Form Content */
 
     .container {
-        width: 75vw;
+        width: 75dvw;
         flex-direction: line;
     }
 
@@ -172,6 +180,10 @@
 
     .esquerda img {
         max-width: 100px;
+    }
+
+    .direita {
+        overflow-y: scroll;
     }
 
     /* Form Direita */

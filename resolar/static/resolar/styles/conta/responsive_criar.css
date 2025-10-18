@@ -22,13 +22,17 @@
     /* Form Content */
 
     .container {
-        width: 70vw;
+        width: 90dvw;
         flex-direction: column;
         gap: 30px;
+
+        overflow-y: scroll;
     }
 
     .esquerda, .direita {
         width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 
     .input ~ .label {
@@ -69,6 +73,7 @@
     .buttons {
         flex-direction: column;
         gap: 20px;
+        padding-bottom: 40px;
     }
 
     .buttons h3, .buttons a {
@@ -90,13 +95,17 @@
     /* Form Content */
 
     .container {
-        width: 70vw;
+        width: 80dvw;
         flex-direction: column;
         gap: 30px;
+        
+        overflow-y: scroll;
     }
 
     .esquerda, .direita {
         width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     .input ~ .label {
@@ -137,6 +146,7 @@
     .buttons {
         flex-direction: column;
         gap: 20px;
+        padding-bottom: 40px;
     }
 
     .buttons h3, .buttons a {
@@ -155,7 +165,7 @@
     /* Form Content */
 
     .container {
-        width: 75vw;
+        width: 75dvw;
         flex-direction: line;
     }
 
@@ -176,6 +186,10 @@
 
     .esquerda img {
         max-width: 100px;
+    }
+
+    .direita {
+        overflow-y: scroll;
     }
 
     /* Form Direita */
