@@ -10,7 +10,7 @@ if not SECRET_KEY:
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['resolar-completo.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['resolar.onrender.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
