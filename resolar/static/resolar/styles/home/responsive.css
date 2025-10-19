@@ -1,119 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+{% load static%}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'resolar/imgs/LogoSemNome.png' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/conta/perfil.css' %}">
+    <link rel="stylesheet" href="{% static 'resolar/styles/conta/responsive_perfil.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Tela de indisponibilidade para telas muito pequenas -->
+    <div id="indisponivel">
+        <h2>Site indisponível para sua resolução de tela</h2>
+        <p>Lamentamos por isto! &#128546;</p>
+    </div>
 
-/* Geral */
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
+    <!-- Confirmação de exclusão de conta -->
+    <div id="confExcluir">
+        <span style="font-weight: 500;">Sentimos muito em vê-lo ir 😭</span>
 
-/* Tela de indisponibilidade */
-#indisponivel {
-    height: 100dvh;
-    padding: 0 15px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    display: none;
-}
+        <p>Para excluir sua conta, preencha o campo abaixo com a seguinte frase:<span id="frase">"O rato roeu a roupa do rei de Roma"</span></p>
 
-/* Corpo da página */
-body {
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    background-color: rgba(144, 238, 144, 0.171);
-    padding-top: 5dvh;
-    padding-bottom: 5dvh;
-}
+        <div class="inputGroup" style="margin-bottom: 0px;">
+            <input id="fraseInput" required="" type="text" name="frase" class="input">
+            <label for="frase" class="label">Frase</label>
+            <div id="confButtons">
+                <a id="confCancelar"><i class="fa-solid fa-remove"></i> Cancelar</a>
+                <a id="confDeletar"><i class="fa-solid fa-trash"></i> Deletar</a>
+            </div>
+        </div>
+    </div>
 
-#confirmacao {
-    width: 90%;
-    max-width: 615px;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    <!-- Container com o conteúdo -->
+    <div id="container">
+        <!-- Banner com saudações -->
+        <div id="banner">
+            <div id="imgPerfil"></div>
+            <h2 id="saudacoes"><span id="bom"></span>, <span id="nomeSaudacoes"></span>!</h2>
+            <div id="creditosContainer">🪙 Créditos:<span id="creditos">{{user.userprofile.creditos}}</span></div>
+        </div>
 
-    max-height: 90dvh; 
-    overflow-y: auto; 
-    scrollbar-width: thin;
-    scrollbar-color: #4CAF4F #e0e0e0;
-}
 
-#confirmacao h1, #confirmacao p {
-    text-align: center;
-}
+<!-- Outras Informações -->
+<div id="info">
+    <!-- Informações Pessoais -->
+    <span>Informações Pessoais</span>
+    <p>Clique para alterar as informações</p>
 
-#confirmacao h1 span {
-    color: #4CAF4F;
-}
+    <form action="{% url 'salvar' %}" method="POST" autocomplete="off">
+        {% csrf_token %}
 
-#confirmacao img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-}
+        <div class="div">
+            <div id="inputs">
+                <div class="inputGroup">
+                    <input value="{{ user.userprofile.nome }}" id="nome" required="" type="text" name="nome" class="input">
+                    <label for="nome" class="label">Nome</label>
+                </div>
+                <div class="inputGroup">
+                    <input value="{{ user.email }}" id="email" autocomplete="off" required="" type="text" name="email" class="input">
+                    <label for="email" class="label">E-mail</label>
+                </div>
+                <div class="inputGroup">
+                    <input value="{{ user.username }}" id="cpf" required="" type="text" name="cpf" class="input" disabled>
+                    <label for="cpf" class="label">CPF/CNPJ</label>
+                </div>
+                <div class="inputGroup">
+                    <input value="" id="senha" type="password" name="senha" class="input" placeholder="Digite uma nova senha">
+                    <label for="senha" class="label">Senha</label>
+                    <i id="verSenha" class="fa-solid fa-eye icon"></i>
+                </div>
+                <div class="inputGroup" id="senhaAtual">
+                    <input id="confirmarSenha" value="" type="password" name="senhaAtual" class="input info" placeholder="Digite a senha atual">
+                    <label for="senhaAtual" class="label">Senha Atual</label>
+                    <i id="verSenha2" class="fa-solid fa-eye icon"></i>
+                </div>
+            </div>
+        </div>
 
-#confirmacao p span {
-    font-weight: 600;
-}
+        {% if messages %}
+            {% for message in messages%}
+                <p class="alert {{message.tags}}"> {{message}} </p>
+            {% endfor %}
+        {% endif %}
 
-#confirmacao p i {
-    margin-left: 5px;
-    color: #263238;
-    transition: all 0.3s;
-    cursor: pointer;
-}
+        <!-- Outras Opções (sair, excluir, salvar e cancelar) -->
+        <div class="div">
+            <div id="opcoes">
+                <div id="divDeletar">
+                    <a class="deletar"><i class="fa-solid fa-trash"></i>Deletar conta</a>
+                </div>
 
-#confirmacao p i:hover {
-    color: #121212;
-}
+                <div id="divOutros">
+                    <a href="{% url 'sair' %}" class="sair"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
+                    <a href="{% url 'inicio' %}" class="cancelar"><i class="fa-solid fa-home"></i>Inicio</a>
+                    <button type="submit" class="salvar"><i class="fa-solid fa-save"></i>Salvar</button>
+                </div>
+            </div>
 
-/* Botões */
-#confButtons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
+            <div id="opcoesMobile">
+                <div id="divOutros">
+                    <a href="{% url 'inicio' %}" class="cancelar"><i class="fa-solid fa-home"></i>Início</a>
+                    <button type="submit" class="salvar"><i class="fa-solid fa-save"></i>Salvar</button>
+                </div>
+                <div id="divDeletar">
+                    <a class="deletar"><i class="fa-solid fa-trash"></i>Deletar conta</a>
+                    <a href="{% url 'sair' %}" class="sair"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
-#confButtons a {
-    text-decoration: none;
-    cursor: pointer;
-    padding: 14px 28px;
-    border-radius: 12px;
-    border: 0;
-    background-color: #4CAF4F;
-    color: #fff;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s;
-}
 
-#confButtons a:hover {
-    transform: scale(1.05);
-    background-color: #4CAF4F;
-}
-
-/* Animação de entrada */
-#confirmacao {
-    animation: aparecer 0.4s ease;
-}
-
-@keyframes aparecer {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    <script src="{% static 'resolar/scripts/perfil.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        twemoji.parse(document.querySelector('body'), {
+            folder: 'svg',
+            ext: '.svg',
+            base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+        });
+    </script>
+</body>
+</html>
