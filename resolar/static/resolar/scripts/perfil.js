@@ -110,14 +110,18 @@ imgPerfil.addEventListener('click', () => {
 
 // Confirmar exclusão
 
+fraseInput.addEventListener('paste', (event) => {
+    event.preventDefault();
+})
+
 Array.from(btnExcluir).forEach(el => {
     el.addEventListener('click', () => {
         event.preventDefault();
         confirmacao.style.opacity = '1';
         confirmacao.style.zIndex = '15';
-        container.style.pointerEvents = 'none';
         container.style.opacity = '0.5';
         container.style.transition = 'opacity 0.3s';
+        container.style.pointerEvents = 'none'
     })
 })
 
@@ -125,20 +129,20 @@ Array.from(btnExcluir).forEach(el => {
 btnCancelar.addEventListener('click', () => {
     confirmacao.style.opacity = '0';
     confirmacao.style.zIndex = '-10';
-    container.style.pointerEvents = 'all';
     container.style.opacity = '1';
     container.style.transition = 'opacity 0.3s';
-
-    inputExcluir.value = "";
+    
+    container.style.pointerEvents = ''
+    inputExcluir.value = '';
 })
 
 inputExcluir.addEventListener('keyup', () => {
     if (inputExcluir.value == "O rato roeu a roupa do rei de Roma") {
         confDeletar.classList.add('ativo');
-        confDeletar.disabled = false;
+        confDeletar.href = "{% url 'deletar' %}"
     } else {
         confDeletar.classList.remove('ativo');
-        confDeletar.disabled = true;
+        confDeletar.removeAttribute('href');     
     }
 });
 
