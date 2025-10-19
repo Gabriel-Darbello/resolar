@@ -37,7 +37,7 @@ body {
     max-width: 615px;
     background-color: #fff;
     border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
