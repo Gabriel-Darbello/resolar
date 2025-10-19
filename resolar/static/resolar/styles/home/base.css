@@ -777,6 +777,18 @@ footer ul li a, footer ul li {
     transform: translate(-50%, -50%);
 }
 
+#list1 {
+    width: 15%;
+}
+
+#list2 {
+    width: 25%
+}
+
+#list3 {
+    width: 60%;
+}
+
 #termos.visivel {
     overflow: scroll;
     display: flex;
