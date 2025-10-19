@@ -139,7 +139,7 @@ btnCancelar.addEventListener('click', () => {
 inputExcluir.addEventListener('keyup', () => {
     if (inputExcluir.value == "O rato roeu a roupa do rei de Roma") {
         confDeletar.classList.add('ativo');
-        confDeletar.href = "{% url 'deletar' %}"
+        confDeletar.href = "../deletar"
     } else {
         confDeletar.classList.remove('ativo');
         confDeletar.removeAttribute('href');     
