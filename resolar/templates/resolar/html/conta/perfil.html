@@ -19,16 +19,16 @@
 
     <!-- Confirmação de exclusão de conta -->
     <div id="confExcluir">
-        <span style="font-weight: 600;">Sentimos muito em vê-lo ir</span>
+        <span style="font-weight: 500;">Sentimos muito em vê-lo ir 😭</span>
 
-        <p>Para excluir sua conta, preencha o campo abaixo com a seguinte frase: <br><span id="frase">'O rato roeu a roupa do rei de Roma'</span></p>
+        <p>Para excluir sua conta, preencha o campo abaixo com a seguinte frase:<span id="frase">"O rato roeu a roupa do rei de Roma"</span></p>
 
-        <div class="inputGroup">
+        <div class="inputGroup" style="margin-bottom: 0px;">
             <input id="fraseInput" required="" type="text" name="frase" class="input">
             <label for="frase" class="label">Frase</label>
             <div id="confButtons">
                 <a id="confCancelar"><i class="fa-solid fa-remove"></i> Cancelar</a>
-                <a id="confDeletar" href="{% url 'deletar' %}"><i class="fa-solid fa-trash"></i> Deletar</a>
+                <a id="confDeletar"><i class="fa-solid fa-trash"></i> Deletar</a>
             </div>
         </div>
     </div>
@@ -115,5 +115,13 @@
 
 
     <script src="{% static 'resolar/scripts/perfil.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        twemoji.parse(document.querySelector('body'), {
+            folder: 'svg',
+            ext: '.svg',
+            base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+        });
+    </script>
 </body>
 </html>
