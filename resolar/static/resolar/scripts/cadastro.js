@@ -218,7 +218,8 @@ concluir.addEventListener('click', () => {
         estado: document.getElementById('estado'),
         condicao: document.getElementById('condicao'),
         motivo: document.getElementById('motivo'),
-        inversor: document.getElementById('inversor')
+        inversor: document.getElementById('inversor'),
+        sistema: document.getElementById('sistema')
     };
 
     // Objeto com os respectivos opções dos selects
@@ -227,7 +228,8 @@ concluir.addEventListener('click', () => {
         estado: 'Funciona',
         condicao: 'Inteiro',
         motivo: 'Troca',
-        inversor: 'On-Grid'
+        inversor: 'String',
+        sistema: 'On-Grid'
     };
 
     // Preenche os inputs vazios
