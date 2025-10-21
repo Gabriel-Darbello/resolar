@@ -229,7 +229,7 @@ body {
     box-shadow: 0 0 0 8px rgb(76 175 79 / 40%) !important;
 }
 
-.alert.error {
+#info .alert.error {
     margin-bottom: 10px;
     color: rgba(255, 0, 0, 0.753);
     text-align: center;

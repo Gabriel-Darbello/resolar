@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const bonusIdade = 1 + 0.03 * idadeAnos;
         const resultado = pot * (ef / 100) * bonusIdade * fC * fF;
-        return Math.min(resultado, 25).toFixed() * 3;    
+        return Math.min(resultado, 25).toFixed() * 3;
     }
 
     // Função para exibir dados do painel nos cards
@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tipo: painelEl.dataset.tipo || '-',
             motivo: painelEl.dataset.motivo || '-',
             inversor: painelEl.dataset.inversor || '-',
+            sistema: painelEl.dataset.sistema || '-',
             tensao: painelEl.dataset.tensao || '-',
             corrente: painelEl.dataset.corrente || '-'
         };
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setText('tipo', painelData.tipo);
         setText('motivo', painelData.motivo);
         setText('inversor', painelData.inversor);
+        setText('sistema', painelData.sistema);
         setText('tensao', painelData.tensao + 'V');
         setText('corrente', painelData.corrente + 'A');
 
@@ -150,6 +152,6 @@ let painelButton = document.querySelectorAll('.menuItem');
 
 Array.from(painelButton).forEach(el => {
     el.addEventListener('click', () => {
-        menu.classList.add('closed');   
+        menu.classList.add('closed');
     })
 })

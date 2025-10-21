@@ -138,6 +138,7 @@ def reciclar(request):
             condicao=condicao,
             motivo=request.POST.get('motivo'),
             inversor=request.POST.get('inversor'),
+            sistema=request.POST.get('sistema'),
             comentarios=request.POST.get('comentarios'),
             tensao=request.POST.get('tensao'),
             corrente=request.POST.get('corrente'),

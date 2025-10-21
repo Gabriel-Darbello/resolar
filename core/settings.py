@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 if not SECRET_KEY:
     raise RuntimeError("DJANGO_SECRET_KEY não definido! Defina a variável de ambiente.")
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['resolar.onrender.com', '127.0.0.1']
 

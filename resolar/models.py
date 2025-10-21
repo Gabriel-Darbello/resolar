@@ -54,21 +54,25 @@ class PainelSolar(models.Model):
     motivo = models.CharField(max_length=50, choices=MOTIVO_CHOICES)
 
     INVERSOR_CHOICES = [
-        ("On-Grid", "On-Grid"),
-        ("Off-Grid", "Off-Grid"),
-        ("String", "String"),
         ("Híbrido", "Híbrido"),
         ("Microinversor", "Microinversor"),
         ("Central", "Central"),
     ]
     inversor = models.CharField(max_length=30, choices=INVERSOR_CHOICES)
 
+    SISTEMA_CHOICES = [
+        ("On-Grid", "On-Grid"),
+        ("Off-Grid", "Off-Grid"),
+        ("String", "String"),
+    ]
+    sistema = models.CharField(max_length=30, choices=SISTEMA_CHOICES)
+
     comentarios = models.TextField()
 
     tensao = models.CharField(max_length=50)
     corrente = models.CharField(max_length=50)
     eficiencia = models.CharField(max_length=50)
-    dimensao = models.CharField(max_length=100)
+    dimensao = models.FloatField(max_length=100)
     peso = models.CharField(max_length=50)
 
     dataColeta = models.CharField(max_length=20)
