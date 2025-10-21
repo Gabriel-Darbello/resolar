@@ -340,6 +340,13 @@ body {
     font-size: 16px;
 }
 
+.card-sistema {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 20px;
+    line-break: anywhere;
+}
+
 img.emoji {
     height: 1.2em;
     width: 1.2em;
