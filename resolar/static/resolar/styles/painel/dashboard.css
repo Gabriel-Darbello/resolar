@@ -354,3 +354,37 @@ img.emoji {
     vertical-align: -0.2em;
     display: inline-block;
 }
+
+/* Sem cadastro */
+
+#semCadastro {
+    width: calc(100% - 70px);
+    padding: 30px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#semCadastro img {
+    width: 45%;
+    max-width: 450px;
+}
+
+#semCadastro h1 {
+    margin-top: 20px;
+    color: #2C2C2C;
+    font-weight: 600;
+}
+
+#semCadastro h1 > span {
+    color: #4CAF4F;
+}
+
+#semCadastro a {
+    margin-top: 5px;
+    color: #4CAF4F;
+    font-size: 18px;
+}
