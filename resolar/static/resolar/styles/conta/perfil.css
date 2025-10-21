@@ -39,8 +39,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-
-    filter: hue-rotate(10px);
+    max-height: 90%;
 }
 
 /* Banner com saudações */
