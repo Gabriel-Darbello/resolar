@@ -123,6 +123,7 @@ body {
     height: calc(100% - 135px);
     overflow-y: scroll;
     overflow-x: hidden;
+    scrollbar-width: none;
     padding: 10px 0px;
     padding-top: 0px;
     color: #2C2C2C;
@@ -252,7 +253,8 @@ body {
 #informacoes {
     width: calc(100% - 70px);
     padding: 30px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #header {
