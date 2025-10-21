@@ -143,13 +143,11 @@
                 </select>
                 <label for="motivo" class="label">Motivo para descarte</label>
             </div>
+
             <div class="inputGroup">
                 <select id="inversor" required="" name="inversor" class="input inputUp">
                     <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
-                    <option value="On-Grid">On-Grid</option>
-                    <option value="Off-Grid">Off-Grid</option>
                     <option value="String">String</option>
-                    <option value="Híbrido">Híbrido</option>
                     <option value="Microinversor">Microinversor</option>
                     <option value="Central">Central</option>
                 </select>
@@ -157,8 +155,13 @@
             </div>
 
             <div class="inputGroup">
-                <input id="comentarios" required="" type="text" name="comentarios" class="input">
-                <label for="comentarios" class="label">Comentários</label>
+                <select id="sistema" required="" name="sistema" class="input inputUp">
+                    <option class="optDesa" value="" selected hidden>Selecione uma opção</option>
+                    <option value="On-Grid">On-Grid</option>
+                    <option value="Off-Grid">Off-Grid</option>
+                    <option value="Híbrido">Híbrido</option>
+                </select>
+                <label for="sistema" class="label">Tipo do Sistema</label>
             </div>
 
             <div class="btns">
@@ -210,6 +213,11 @@
                     <label for="alt" class="label">Altura (m)</label>
                     <label for="alt" class="label labelResp">Alt.</label>
                 </div>
+            </div>
+
+            <div class="inputGroup">
+                <input id="comentarios" required="" type="text" name="comentarios" class="input">
+                <label for="comentarios" class="label">Comentários</label>
             </div>
 
             <div class="btns">
