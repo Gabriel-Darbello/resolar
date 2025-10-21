@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setText('celulas', painelData.celulas);
         setText('tipo', painelData.tipo);
         setText('motivo', painelData.motivo);
-        setText('inversor', painelData.inversor);
-        setText('sistema', painelData.sistema);
+        setText('inversor', "Inversor:" + painelData.inversor);
+        setText('sistema', "Tipo:" + painelData.sistema);
         setText('tensao', painelData.tensao + 'V');
         setText('corrente', painelData.corrente + 'A');
 
