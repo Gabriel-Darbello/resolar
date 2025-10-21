@@ -208,7 +208,12 @@
             </div>
         </div>
         {% else %}
-            <!-- fazer mensagem de quando não há painéis cadastrados-->
+        <!-- Mensagem de falta de cadastro-->
+        <div id="semCadastro">
+            <img src="{% static 'resolar/imgs/SVGs/Vazio.svg' %}" alt="">
+            <h1>Ainda <span>não</span> há cadastros...</h1>
+            <a href="{% url 'reciclar' %}">Faça um agora!</a>
+        </div>
         {% endif %}
     </div>
 
