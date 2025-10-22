@@ -81,7 +81,7 @@
             </div>
 
         </div>
-        {% if painel %}
+        {% if user.paineis.exists %}
         <!-- Cards com informações -->
         <div id="informacoes">
             <div id="header">
@@ -228,3 +228,4 @@ twemoji.parse(document.getElementById('container'), {
 </script>
 </body>
 </html>
+
