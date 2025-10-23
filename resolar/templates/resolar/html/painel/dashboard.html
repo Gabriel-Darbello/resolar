@@ -59,6 +59,8 @@
                         <i class="fa-solid fa-solar-panel"></i>
                         <p>{{ painel.modelo }} - {{ painel.marca }}</p>
                     </div>
+                    {% empty %}
+                        <p style="width: 100%; text-align: center"> Não há painéis cadastrados </p>
                     {% endfor %}
                 </div>
 
@@ -228,4 +230,5 @@ twemoji.parse(document.getElementById('container'), {
 </script>
 </body>
 </html>
+
 
